@@ -51,8 +51,8 @@ class PostgresWriter(object):
                 default = ('%s::character varying' % default) if t(default) else None
                 return default, 'character varying(%s)' % column['length']
             elif column['type'] == 'json':
-+               default = None
-+               return default, 'json'
+               default = None
+               return default, 'json'
             elif column['type'] == 'integer':
                 default = (" DEFAULT %s" % (column['default'] if t(column['default']) else 'NULL')) if t(default) else None
                 return default, 'integer'
